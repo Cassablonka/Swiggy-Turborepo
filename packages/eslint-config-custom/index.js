@@ -8,6 +8,9 @@ module.exports = {
   ],
   plugins: ["@typescript-eslint"],
   parser: "@typescript-eslint/parser",
+  rules: {
+    "react/react-in-jsx-scope": "off",
+  },
   settings: {
     react: {
       version: "detect",
