@@ -1,10 +1,11 @@
-import { Card, Hero } from "ui";
+import { RestaurantCard, Hero, RestaurantDetails } from "ui";
 
 const App = () => {
   return (
     <>
-      <Hero />
-      <Card />
+      {/* <Hero />
+      <Card /> */}
+      <RestaurantDetails />
     </>
   );
 };

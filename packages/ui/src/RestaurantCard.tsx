@@ -1,4 +1,4 @@
-export const Card = () => {
+export const RestaurantCard = () => {
   return (
     <section>
       <div className="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl">
