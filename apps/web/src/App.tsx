@@ -1,11 +1,11 @@
-import { RestaurantCard, Hero, RestaurantDetails } from "ui";
+import { Hero, RestaurantCard } from "ui";
+import Body from "./components/Body";
 
 const App = () => {
   return (
     <>
-      {/* <Hero />
-      <Card /> */}
-      <RestaurantDetails />
+      <Hero />
+      <Body />
     </>
   );
 };
