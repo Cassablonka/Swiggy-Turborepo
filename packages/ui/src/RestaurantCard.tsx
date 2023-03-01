@@ -1,3 +1,5 @@
+import { IMAGE_URL } from "utils";
+
 export const RestaurantCard = ({
   name,
   costForTwoString,
@@ -17,14 +19,11 @@ export const RestaurantCard = ({
       return "bg-green-500";
     }
   }
-
-  const IMAGE =
-    "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
   return (
     <div className="p-3 border-2 border-gray-100 rounded-xl hover:shadow-2xl">
       <img
         className="object-cover object-center w-full mb-2.5 lg:h-48 md:h-36 rounded-lg"
-        src={IMAGE + cloudinaryImageId}
+        src={IMAGE_URL + cloudinaryImageId}
         alt="blog"
       />
       <hr className="mb-2" />

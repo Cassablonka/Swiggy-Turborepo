@@ -12,30 +12,17 @@
     "clean": "rm -rf build"
   },
   "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "5.0.0",
-    "ui": "workspace:*",
-    "web-vitals": "^2.1.2"
+    "ui": "workspace:*"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.0.3",
-    "@types/node": "^16.11.14",
-    "@types/react": "^17.0.37",
-    "@types/react-dom": "^17.0.11",
-    "@types/testing-library__jest-dom": "^5.14.5",
     "tsconfig": "workspace:*",
     "tailwind-config": "workspace:*",
     "eslint-config-custom": "workspace:*",
-    "typescript": "^4.5.4"
+    "react-scripts": "5.0.0"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {

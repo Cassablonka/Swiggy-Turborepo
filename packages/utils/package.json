@@ -1,5 +1,5 @@
 {
-  "name": "ui",
+  "name": "utils",
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
@@ -12,13 +12,9 @@
     "dev": "tsup src/index.tsx --format cjs --watch --dts --external react",
     "lint": "eslint \"src/**/*.ts*\""
   },
-  "dependencies": {
-    "utils": "workspace:*"
-  },
   "devDependencies": {
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*",
-    "tsup": "^5.10.1",
-    "tailwind-config": "workspace:*"
+    "tsup": "^5.10.1"
   }
 }
