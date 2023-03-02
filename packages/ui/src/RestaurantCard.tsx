@@ -1,12 +1,20 @@
 import { IMAGE_URL } from "utils";
 
+type RestaurantProps = {
+  name: string;
+  costForTwoString: string;
+  avgRating: string;
+  cloudinaryImageId: string;
+  cuisines: string[];
+};
+
 export const RestaurantCard = ({
   name,
   costForTwoString,
   avgRating,
   cloudinaryImageId,
   cuisines,
-}: any) => {
+}: RestaurantProps) => {
   const newName = name.split("-")[0];
   const newCuisines = cuisines.join(", ").slice(0, 30);
 

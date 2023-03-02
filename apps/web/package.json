@@ -12,13 +12,14 @@
     "clean": "rm -rf build"
   },
   "dependencies": {
-    "ui": "workspace:*"
+    "ui": "workspace:*",
+    "utils": "workspace:*"
   },
   "devDependencies": {
-    "tsconfig": "workspace:*",
-    "tailwind-config": "workspace:*",
     "eslint-config-custom": "workspace:*",
-    "react-scripts": "5.0.0"
+    "react-scripts": "5.0.0",
+    "tailwind-config": "workspace:*",
+    "tsconfig": "workspace:*"
   },
   "eslintConfig": {
     "extends": [

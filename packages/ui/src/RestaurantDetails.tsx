@@ -1,6 +1,9 @@
-import MenuCard from "./MenuCard";
+import { useParams } from "react-router-dom";
 
 export const RestaurantDetails = () => {
+  const { menuId } = useParams();
+  console.log(menuId);
+
   return (
     <>
       <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:py-24">
@@ -12,19 +15,14 @@ export const RestaurantDetails = () => {
                   <img
                     className="object-cover object-center mx-auto rounded-lg shadow-2xl"
                     alt="hero"
-                    src="https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg?cs=srgb&dl=pexels-stein-egil-liland-1933239.jpg&fm=jpg"
                   />
                 </div>
               </div>
             </div>
           </div>
           <div className="flex flex-col items-start mt-12 mb-16 text-left lg:flex-grow lg:w-1/2 lg:pl-6 xl:pl-24 md:mb-0 xl:mt-0">
-            <span className="mb-8 text-xs font-bold tracking-widest text-blue-600 uppercase">
-              Restaurant Location
-            </span>
-            <h1 className="mb-8 text-4xl font-bold leading-none tracking-tighter text-neutral-600 md:text-7xl lg:text-5xl">
-              Restaurant Name.
-            </h1>
+            <span className="mb-8 text-xs font-bold tracking-widest text-blue-600 uppercase"></span>
+            <h1 className="mb-8 text-4xl font-bold leading-none tracking-tighter text-neutral-600 md:text-7xl lg:text-5xl"></h1>
             <p className="mb-8 text-base leading-relaxed text-left text-gray-500">
               What they serve, their stars and all.
             </p>
@@ -59,7 +57,6 @@ export const RestaurantDetails = () => {
               List of Menus
             </strong>
           </div>
-          <MenuCard />
         </div>
       </div>
     </>

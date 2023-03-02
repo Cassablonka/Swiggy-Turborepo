@@ -1,5 +1,1 @@
-import sharedConfig from "tailwind-config/tailwind.config.js";
-
-export default {
-  ...sharedConfig,
-};
+module.exports = require("tailwind-config/tailwind.config.js");
