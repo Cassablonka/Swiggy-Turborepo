@@ -1,8 +1,10 @@
 import { useParams } from "react-router-dom";
+import { IMAGE_URL } from "utils";
+import { useGetIndividualRestaurant } from "utils";
 
 export const RestaurantDetails = () => {
   const { menuId } = useParams();
-  console.log(menuId);
+  const restaurant = useGetIndividualRestaurant(menuId!) as any;
 
   return (
     <>
@@ -14,6 +16,7 @@ export const RestaurantDetails = () => {
                 <div className="relative">
                   <img
                     className="object-cover object-center mx-auto rounded-lg shadow-2xl"
+                    src={IMAGE_URL + restaurant.cloudinaryImageId}
                     alt="hero"
                   />
                 </div>
@@ -22,7 +25,9 @@ export const RestaurantDetails = () => {
           </div>
           <div className="flex flex-col items-start mt-12 mb-16 text-left lg:flex-grow lg:w-1/2 lg:pl-6 xl:pl-24 md:mb-0 xl:mt-0">
             <span className="mb-8 text-xs font-bold tracking-widest text-blue-600 uppercase"></span>
-            <h1 className="mb-8 text-4xl font-bold leading-none tracking-tighter text-neutral-600 md:text-7xl lg:text-5xl"></h1>
+            <h1 className="mb-8 text-4xl font-bold leading-none tracking-tighter text-neutral-600 md:text-7xl lg:text-5xl">
+              {restaurant.name}
+            </h1>
             <p className="mb-8 text-base leading-relaxed text-left text-gray-500">
               What they serve, their stars and all.
             </p>

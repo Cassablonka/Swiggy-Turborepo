@@ -13,12 +13,13 @@
     "lint": "eslint \"src/**/*.ts*\""
   },
   "dependencies": {
+    "react-router-dom": "^6.8.2",
     "utils": "workspace:*"
   },
   "devDependencies": {
     "eslint-config-custom": "workspace:*",
+    "tailwind-config": "workspace:*",
     "tsconfig": "workspace:*",
-    "tsup": "^5.10.1",
-    "tailwind-config": "workspace:*"
+    "tsup": "^5.10.1"
   }
 }

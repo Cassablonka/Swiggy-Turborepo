@@ -1,5 +1,6 @@
 export * from "./RestaurantCard";
 export * from "./Hero";
+export * from "./Landing";
 export * from "./RestaurantDetails";
-export * from "./Body";
+export * from "./RestaurantList";
 export * from "./Error";

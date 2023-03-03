@@ -1,12 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Hero, Body } from "ui";
 
-const App = () => {
-  return (
-    <>
-      <Outlet />
-    </>
-  );
-};
+const App = () => <Outlet />;
 
 export default App;

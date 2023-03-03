@@ -1,7 +1,7 @@
 import { useGetAllRestaurants } from "utils";
 import { RestaurantCard } from "./RestaurantCard";
 
-export const Body = () => {
+export const RestaurantList = () => {
   const restaurants = useGetAllRestaurants();
 
   return (
