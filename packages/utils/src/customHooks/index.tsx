@@ -23,7 +23,7 @@ export const useGetIndividualRestaurant = (resId: string) => {
 
   async function getRestaurant(resId: string) {
     const data = await fetchAPI(INDIVIDUAL_RESTAURANTS_URL + resId);
-    setRestaurant(data?.data);
+    setRestaurant(data?.data?.cards);
   }
   return restaurant;
 };
