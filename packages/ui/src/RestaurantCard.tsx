@@ -2,7 +2,7 @@ import { IMAGE_URL } from "utils";
 
 type RestaurantProps = {
   name: string;
-  costForTwoString: string;
+  costForTwo: string;
   avgRating: string;
   cloudinaryImageId: string;
   cuisines: string[];
@@ -10,10 +10,10 @@ type RestaurantProps = {
 
 export const RestaurantCard = ({
   name,
-  costForTwoString,
   avgRating,
   cloudinaryImageId,
   cuisines,
+  costForTwo,
 }: RestaurantProps) => {
   const newName = name.split("-")[0];
   const newCuisines = cuisines.join(", ").slice(0, 30);
@@ -48,7 +48,7 @@ export const RestaurantCard = ({
           {newCuisines.length > 28 ? newCuisines + "..." : newCuisines}
         </p>
         <span className="text-sm text-gray-500">
-          {costForTwoString.toLowerCase()}
+          {costForTwo?.toLowerCase()}
         </span>
       </div>
     </div>

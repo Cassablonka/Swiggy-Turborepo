@@ -13,7 +13,7 @@ export const Error = () => {
               />
             </div>
             <div className="flex flex-col justify-center items-center sm:items-start md:py-24 lg:py-32">
-              <p className="text-indigo-500 text-sm md:text-base font-semibold uppercase mb-4">
+              <p className="text-indigo-500 text-4xl md:text-4xl font-semibold uppercase mb-4">
                 Error 404
               </p>
               <h1 className="text-gray-800 text-2xl md:text-3xl font-bold text-center sm:text-left mb-2">
@@ -28,7 +28,7 @@ export const Error = () => {
                     href="/"
                     className="inline-block text-indigo-500 hover:text-indigo-600 active:text-indigo-700 text-sm md:text-base transition duration-100"
                   >
-                    Home
+                    Go Back to Home
                   </a>
                 </div>
               </nav>

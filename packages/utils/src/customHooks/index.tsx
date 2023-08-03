@@ -10,7 +10,9 @@ export const useGetAllRestaurants = () => {
 
   async function getAllRestaurants() {
     const data = await fetchAPI(ALL_RESTAURANTS_URL);
-    setRestaurants(data?.data?.cards[2]?.data?.data?.cards);
+    setRestaurants(
+      data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   }
   return restaurants;
 };

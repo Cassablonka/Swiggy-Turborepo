@@ -18,14 +18,14 @@ export const RestaurantDetails = () => {
   return (
     <>
       <div className="px-20 py-24 mx-auto sm:px-6 md:px-28 lg:px-26 lg:py-16">
-        <div className="rounded-xl bg-gradient-to-r from-orange-300 to-rose-300 px-10 py-12 mx-auto sm:px-6 md:px-20 lg:px-16 lg:py-14">
+        <div className="rounded-xl bg-gradient-to-l from-orange-300 to-rose-300 px-10 py-12 mx-auto sm:px-6 md:px-20 lg:px-16 lg:py-14">
           <div className="flex flex-wrap items-center mx-auto max-w-7xl">
             <div className="w-full lg:max-w-lg lg:w-1/2 rounded-xl">
               <div>
                 <div className="relative w-full max-w-lg">
                   <div className="relative">
                     <img
-                      className="object-cover object-center mx-auto rounded-lg shadow-2xl"
+                      className="object-cover object-center mx-auto rounded-lg"
                       src={IMAGE_URL + restaurant?.cloudinaryImageId}
                       alt="hero"
                     />
@@ -34,9 +34,9 @@ export const RestaurantDetails = () => {
               </div>
             </div>
             <div className="flex flex-col items-start mt-12 mb-16 text-left lg:flex-grow lg:w-1/2 lg:pl-6 xl:pl-24 md:mb-0 xl:mt-0">
-              <span className="mb-8 flex flex-wrap text-xs font-bold tracking-widest text-gray-800 uppercase">
+              <span className="mb-8 flex flex-wrap text-s text-black">
                 <svg
-                  className="w-6 h-6 mr-2 text-gray-600"
+                  className="w-6 h-6 mr-2 text-black"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -50,13 +50,13 @@ export const RestaurantDetails = () => {
                   />
                   <circle cx="12" cy="9" r="3" fill="currentColor" />
                 </svg>
-                {restaurant?.locality}, {restaurant?.areaName},
+                {restaurant?.locality}, {restaurant?.areaName},{" "}
                 {restaurant?.city}
               </span>
-              <h1 className="mb-8 text-4xl font-bold leading-none tracking-tighter text-black md:text-7xl lg:text-5xl">
+              <h1 className="mb-8 text-4xl font-bold leading-none tracking-tight text-black md:text-7xl lg:text-5xl uppercase">
                 {restaurant?.name}
               </h1>
-              <p className="mb-8 text-base leading-relaxed text-left text-black">
+              <p className="mb-8 text-base leading-relaxed text-left tracking-widest text-black">
                 {restaurant?.costForTwoMessage} |{" "}
                 {restaurant?.avgRatingString + " stars"} |{" "}
                 {restaurant?.totalRatingsString}
