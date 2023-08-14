@@ -1,21 +1,17 @@
 import { useParams } from "react-router-dom";
 import { IMAGE_URL, useGetIndividualRestaurant } from "utils";
-import MenuCard from "./MenuCard";
+import MenuCategory from "./MenuCategory";
 
 export const RestaurantDetails = () => {
   const { menuId } = useParams();
   const data = useGetIndividualRestaurant(menuId!) as any;
+  
   const restaurant = data[0]?.card?.card?.info;
   const menu = data[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
 
-  let menuList: any = [];
-  menu?.map((d: any) => {
-    if (d?.card?.card.itemCards && d?.card?.card.title == "Recommended") {
-      return (menuList = d?.card?.card?.itemCards);
-    }
-  });
+  const allCategories = menu?.filter((res: any) => res?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
 
-  return (
+  return ( 
     <>
       <div className="px-20 py-24 mx-auto sm:px-6 md:px-28 lg:px-26 lg:py-16">
         <div className="rounded-xl bg-gradient-to-l from-orange-300 to-rose-300 px-10 py-12 mx-auto sm:px-6 md:px-20 lg:px-16 lg:py-14">
@@ -88,17 +84,10 @@ export const RestaurantDetails = () => {
           </div>
         </div>
       </div>
-      <div className="bg-gray-100 px-20 flex flex-wrap md:flex">
-        <div className="flex py-14 flex-col flex-shrink-0 px-10 md:w-64 md:mb-0">
-          <strong className="flex text-3xl font-light leading-none text-left text-thin lg:text-4xl">
-            Recommended {`(${menuList.length})`}
-          </strong>
-        </div>
-        <div className="block ml-8 mt-6">
-          {menuList?.map((d: any) => {
-            return <MenuCard key={d?.card?.info?.id} {...d?.card?.info} />;
-          })}
-        </div>
+      <div className="bg-gray-100 mt-4">
+      {allCategories?.map((d: any, i: number) => {
+        return <MenuCategory key={i} {...d.card.card}/>
+      })}
       </div>
     </>
   );
