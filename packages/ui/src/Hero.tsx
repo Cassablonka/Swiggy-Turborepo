@@ -1,7 +1,21 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { RestaurantContext } from "utils";
 
 export const Hero = () => {
   const [searchInput, setSearchInput] = useState("");
+
+  const { allRestaurants, callBackFunc } = useContext(RestaurantContext);
+
+  useEffect(() => {
+    callBackFunc(allRestaurants);
+  }, [searchInput.length === 0]);
+
+  const handleClick = () => {
+    const filteredRestaurants = allRestaurants?.filter((res: any) =>
+      res?.info.name?.toLowerCase().includes(searchInput.toLowerCase())
+    );
+    callBackFunc(filteredRestaurants);
+  };
   return (
     <>
       <section className="w-full bg-gradient-to-b from-orange-300 to-rose-300 dark:bg-wickeddark">
@@ -24,7 +38,11 @@ export const Hero = () => {
                     />
                   </div>
                   <div className="mt-4 sm:mt-0 sm:ml-3 revue-form-actions">
-                    <button className="block w-full px-5 py-3 text-base font-medium text-gray-700 border border-transparent rounded-lg shadow hover:bg-gray-50 sm:px-10">
+                    <button
+                      type="submit"
+                      onClick={handleClick}
+                      className="block w-full px-5 py-3 text-base font-medium border rounded-lg shadow-lg hover:bg-orange-200 sm:px-10"
+                    >
                       Search
                     </button>
                   </div>
