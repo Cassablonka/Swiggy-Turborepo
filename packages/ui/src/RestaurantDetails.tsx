@@ -1,17 +1,24 @@
 import { useParams } from "react-router-dom";
 import { IMAGE_URL, useGetIndividualRestaurant } from "utils";
 import MenuCategory from "./MenuCategory";
+import { SetStateAction, useState } from "react";
 
 export const RestaurantDetails = () => {
+  const [activeIndex, setActiveIndex] = useState(null);
   const { menuId } = useParams();
   const data = useGetIndividualRestaurant(menuId!) as any;
-  
   const restaurant = data[0]?.card?.card?.info;
   const menu = data[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+  const allCategories = menu?.filter(
+    (res: any) =>
+      res?.card?.card?.["@type"] ===
+      "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+  );
+  const onItemClick = (index: SetStateAction<null>) => {
+    setActiveIndex(index === activeIndex ? null : index);
+  };
 
-  const allCategories = menu?.filter((res: any) => res?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
-
-  return ( 
+  return (
     <>
       <div className="px-20 py-24 mx-auto sm:px-6 md:px-28 lg:px-26 lg:py-16">
         <div className="rounded-xl bg-gradient-to-l from-orange-300 to-rose-300 px-10 py-12 mx-auto sm:px-6 md:px-20 lg:px-16 lg:py-14">
@@ -85,9 +92,17 @@ export const RestaurantDetails = () => {
         </div>
       </div>
       <div className="bg-gray-100 mt-4">
-      {allCategories?.map((d: any, i: number) => {
-        return <MenuCategory key={i} {...d.card.card}/>
-      })}
+        {allCategories?.map((d: any, index: number) => {
+          return (
+            <MenuCategory
+              key={index}
+              {...d.card.card}
+              index={index}
+              activeIndex={activeIndex}
+              onItemClick={onItemClick}
+            />
+          );
+        })}
       </div>
     </>
   );
