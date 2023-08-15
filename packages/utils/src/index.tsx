@@ -1,3 +1,3 @@
 export * from "./constants";
-export * from "./customHooks";
+export * from "./hooks";
 export * from "./contexts";
