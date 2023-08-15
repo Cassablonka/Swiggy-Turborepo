@@ -1,10 +1,12 @@
+import { useContext } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { UserContext } from "utils";
 
 export const Header = () => {
-  const cartItems = useSelector((store: any) => store.cart.items);
+  const { auth } = useContext(UserContext);
 
-  console.log("==Cart", cartItems);
+  const cartItems = useSelector((store: any) => store.cart.items);
 
   return (
     <>
@@ -68,6 +70,7 @@ export const Header = () => {
                   Cart - {cartItems.length} items
                 </Link>
               </li>
+              <li>{auth.name}</li>
             </ul>
           </div>
         </div>
