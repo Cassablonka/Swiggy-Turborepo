@@ -1,6 +1,8 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export const Header = () => {
+  const cartItems = useSelector((store: any) => store.cart.items);
   return (
     <>
       <nav className="border-gray-200 px-2 sm:px-4 py-2.5 shadow-md">
@@ -60,7 +62,7 @@ export const Header = () => {
                   href="#"
                   className="block py-2 pl-3 pr-4 text-gray-400 md:border-0 md:p-0"
                 >
-                  LinkedIn
+                  Cart - {cartItems.length} items
                 </a>
               </li>
             </ul>
