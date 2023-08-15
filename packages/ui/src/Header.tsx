@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 
 export const Header = () => {
   const cartItems = useSelector((store: any) => store.cart.items);
+
+  console.log("==Cart", cartItems);
+
   return (
     <>
       <nav className="border-gray-200 px-2 sm:px-4 py-2.5 shadow-md">
@@ -58,12 +61,12 @@ export const Header = () => {
                 </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/cart"
                   className="block py-2 pl-3 pr-4 text-gray-400 md:border-0 md:p-0"
                 >
                   Cart - {cartItems.length} items
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

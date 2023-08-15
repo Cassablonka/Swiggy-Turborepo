@@ -4,7 +4,7 @@ import MenuCategory from "./MenuCategory";
 import { SetStateAction, useState } from "react";
 
 export const RestaurantDetails = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState<null | number>(0);
   const { menuId } = useParams();
   const data = useGetIndividualRestaurant(menuId!) as any;
   const restaurant = data[0]?.card?.card?.info;
@@ -14,7 +14,7 @@ export const RestaurantDetails = () => {
       res?.card?.card?.["@type"] ===
       "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
   );
-  const onItemClick = (index: SetStateAction<null>) => {
+  const onItemClick = (index: SetStateAction<null | number>) => {
     setActiveIndex(index === activeIndex ? null : index);
   };
 

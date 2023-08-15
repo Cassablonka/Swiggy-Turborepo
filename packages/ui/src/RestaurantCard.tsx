@@ -28,7 +28,7 @@ export const RestaurantCard = ({
     }
   }
   return (
-    <div className="p-3 border-2 border-gray-100 rounded-xl hover:shadow-2xl">
+    <div className="p-3 border-2 border-transparent hover:border-gray-200 rounded-xl hover:shadow-xl">
       <img
         className="object-cover object-center w-full mb-2.5 lg:h-48 md:h-36 rounded-lg"
         src={IMAGE_URL + cloudinaryImageId}

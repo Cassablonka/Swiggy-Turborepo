@@ -1,19 +1,21 @@
-import { IMAGE_URL } from "utils";
+import { useDispatch } from "react-redux";
+import { IMAGE_URL, addItem } from "utils";
 
-const MenuCard = ({
-  name,
-  imageId,
-  price,
-  itemAttribute,
-  category,
-  description,
-}: any) => {
-  const cuisineColor = itemAttribute.vegClassifier == "VEG" ? "green" : "red";
+const MenuCard = (props: any) => {
+  const { name, imageId, price, itemAttribute, category, description } = props;
+  const cuisineColor = itemAttribute?.vegClassifier == "VEG" ? "green" : "red";
+
+  const dispatch = useDispatch();
+
   return (
-    <div className="ml-12 flex prose md:flex-grow prose-md ">
-      <div className="flex flex-col ml-20 py-10 max-w-8xl sm:flex-row border-b border-gray-300">
+    <div className="flex prose md:flex-grow prose-md ">
+      <div className="flex flex-col ml-10 py-10 max-w-8xl sm:flex-row border-b border-gray-300">
         <div className="absolute">
-          <button className="px-4 py-1.5 mx-16 my-28 border-2 border-gray-500 bg-amber-200 shadow-lg rounded-md font-semibold">
+          <button
+            type="submit"
+            onClick={() => dispatch(addItem(props))}
+            className="px-4 py-1.5 mx-16 my-28 border-2 border-gray-500 bg-amber-200 shadow-lg rounded-md font-semibold"
+          >
             Add +
           </button>
         </div>
