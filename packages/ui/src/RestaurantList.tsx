@@ -2,9 +2,14 @@ import { Link } from "react-router-dom";
 import { RestaurantCard } from "./RestaurantCard";
 import { useContext } from "react";
 import { RestaurantContext } from "utils";
+import RestaurantListShimmer from "./Shimmers/RestaurantList/RestaurantListShimmer";
 
 export const RestaurantList = () => {
   const { filteredRes } = useContext(RestaurantContext);
+
+  if (filteredRes.length === 0) {
+    return <RestaurantListShimmer />;
+  }
 
   return (
     <>

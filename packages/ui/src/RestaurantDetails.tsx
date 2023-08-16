@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { IMAGE_URL, useGetIndividualRestaurant } from "utils";
 import MenuCategory from "./MenuCategory";
 import { SetStateAction, useState } from "react";
+import RestaurantShimmer from "./Shimmers/IndividualRestaurant/RestaurantShimmer";
 
 export const RestaurantDetails = () => {
   const [activeIndex, setActiveIndex] = useState<null | number>(0);
@@ -17,6 +18,10 @@ export const RestaurantDetails = () => {
   const onItemClick = (index: SetStateAction<null | number>) => {
     setActiveIndex(index === activeIndex ? null : index);
   };
+
+  if (!restaurant) {
+    return <RestaurantShimmer />;
+  }
 
   return (
     <>
@@ -53,8 +58,7 @@ export const RestaurantDetails = () => {
                   />
                   <circle cx="12" cy="9" r="3" fill="currentColor" />
                 </svg>
-                {restaurant?.locality}, {restaurant?.areaName},{" "}
-                {restaurant?.city}
+                {`${restaurant?.locality}, ${restaurant?.areaName}, ${restaurant?.city}`}
               </span>
               <h1 className="mb-8 text-4xl font-bold leading-none tracking-tight text-black md:text-7xl lg:text-5xl uppercase">
                 {restaurant?.name}

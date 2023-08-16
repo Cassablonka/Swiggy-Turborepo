@@ -8,8 +8,8 @@ const MenuCard = (props: any) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="flex prose md:flex-grow prose-md ">
-      <div className="flex flex-col ml-10 py-10 max-w-8xl sm:flex-row border-b border-gray-300">
+    <div className="flex prose md:flex-grow prose-md">
+      <div className="flex flex-col ml-10 pt-10 pb-4 max-w-8xl sm:flex-row border-b border-gray-300">
         <div className="absolute">
           <button
             type="submit"
@@ -24,7 +24,7 @@ const MenuCard = (props: any) => {
           alt={category}
           className="object-cover object-center w-50 lg:h-32 md:h-25 rounded-lg"
         />
-        <div className="flex-grow m-12 prose text-center sm:text-left sm:mt-0 prose-md">
+        <div className="flex-grow mx-12 my-10 prose text-center sm:text-left sm:mt-0 prose-md">
           <div
             className={`border-2 border-${cuisineColor}-500 w-6 h-6 flex justify-center items-center rounded-md`}
           >

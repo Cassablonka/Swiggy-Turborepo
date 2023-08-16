@@ -42,7 +42,7 @@ const MenuCategory = ({
             </div>
           </button>
         </div>
-        <div className="block ml-8 mt-6">
+        <div className="block ml-28 mt-6">
           {itemCards?.map((d: any) => {
             if (isActive) {
               return <MenuCard key={d?.card?.info?.id} {...d?.card?.info} />;
