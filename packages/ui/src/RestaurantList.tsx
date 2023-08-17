@@ -7,7 +7,7 @@ import RestaurantListShimmer from "./Shimmers/RestaurantList/RestaurantListShimm
 export const RestaurantList = () => {
   const { filteredRes } = useContext(RestaurantContext);
 
-  if (filteredRes.length === 0) {
+  if (filteredRes?.length === 0) {
     return <RestaurantListShimmer />;
   }
 

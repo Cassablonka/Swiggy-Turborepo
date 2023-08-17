@@ -14,7 +14,7 @@ const MenuCard = (props: any) => {
           <button
             type="submit"
             onClick={() => dispatch(addItem(props))}
-            className="px-4 py-1.5 mx-16 my-28 border-2 border-gray-500 bg-amber-200 shadow-lg rounded-md font-semibold"
+            className="px-4 py-1.5 mx-16 my-28 text-black bg-amber-200 hover:border-white border border-amber-400 hover:bg-white hover:text-black shadow-lg rounded-md font-semibold"
           >
             Add +
           </button>

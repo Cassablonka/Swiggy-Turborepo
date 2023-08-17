@@ -2,7 +2,7 @@ const Shimmer = () => {
   return (
     <>
       <div>
-        <div className="rounded-lg mx-24 my-16 p-10">
+        <div className="border-2 rounded-lg mx-24 my-16 p-10">
           <div className="flex">
             <div className="w-1/2 m-4">
               <img
@@ -20,7 +20,7 @@ const Shimmer = () => {
         </div>
         <div>
           <div className="flex prose md:flex-grow prose-md ">
-            <div className="flex flex-col mx-4 w-full sm:flex-row">
+            <div className="flex flex-col mx-4 mb-10 w-full sm:flex-row">
               <img className="object-cover object-center w-full h-20 animate-pulse bg-gray-200 mx-20 p-12 rounded-lg" />
             </div>
           </div>

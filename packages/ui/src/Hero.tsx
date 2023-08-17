@@ -32,7 +32,7 @@ export const Hero = () => {
                   <div className="flex-1 min-w-0 revue-form-group">
                     <input
                       value={searchInput}
-                      className="block w-full mt-1.5 px-5 py-2 text-base placeholder-gray-300 transition duration-500 ease-in-out transform bg-transparent border border-transparent rounded-md text-neutral-600 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-white"
+                      className="block w-full mt-1.5 px-5 py-2 text-base font-medium placeholder-gray-300 transition duration-500 ease-in-out transform bg-transparent border border-transparent rounded-md text-neutral-600 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-white"
                       placeholder="Find restaurants near you"
                       onChange={(e) => setSearchInput(e.target.value)}
                     />
