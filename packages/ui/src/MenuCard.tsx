@@ -1,11 +1,20 @@
-import { useDispatch } from "react-redux";
-import { IMAGE_URL, addItem } from "utils";
+import { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { IMAGE_URL, UserContext, addItem } from "utils";
 
 const MenuCard = (props: any) => {
-  const { name, imageId, price, itemAttribute, category, description } = props;
+  const { name, imageId, price, itemAttribute, category, id, description } =
+    props;
   const cuisineColor = itemAttribute?.vegClassifier == "VEG" ? "green" : "red";
 
   const dispatch = useDispatch();
+
+  const { toastNotification } = useContext(UserContext);
+
+  const handleClick = () => {
+    toastNotification();
+    dispatch(addItem(props));
+  };
 
   return (
     <div className="flex prose md:flex-grow prose-md">
@@ -13,7 +22,7 @@ const MenuCard = (props: any) => {
         <div className="absolute">
           <button
             type="submit"
-            onClick={() => dispatch(addItem(props))}
+            onClick={handleClick}
             className="px-4 py-1.5 mx-16 my-28 text-black bg-amber-200 hover:border-white border border-amber-400 hover:bg-white hover:text-black shadow-lg rounded-md font-semibold"
           >
             Add +

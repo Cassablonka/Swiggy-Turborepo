@@ -7,6 +7,7 @@ type UserContextProps = {
     isLoggedIn: boolean;
   };
   callBackFunc: any;
+  toastNotification: any;
 };
 
 export const UserContext = createContext<UserContextProps>({
@@ -16,4 +17,5 @@ export const UserContext = createContext<UserContextProps>({
     isLoggedIn: false,
   },
   callBackFunc: () => null,
+  toastNotification: () => null,
 });

@@ -6,7 +6,7 @@ export const Cart = () => {
 
   return (
     <>
-      <div className="flex bg-gray-200">
+      <div className="flex bg-gradient-to-b from-orange-300 to-rose-300">
         <div className="w-6/12 my-12 mx-28 rounded-lg shadow-md bg-white">
           <div>
             <div className="flex justify-between border-b-2 mt-4 px-12 pb-4">
@@ -25,9 +25,9 @@ export const Cart = () => {
             </div>
           </div>
         </div>
-        <div className="border-2 my-12 rounded-lg">
+        {/* <div className="border-2 my-12 rounded-lg">
           <h2 className="font-semibold font-sans text-2xl p-4">Summary</h2>
-        </div>
+        </div> */}
       </div>
     </>
   );
