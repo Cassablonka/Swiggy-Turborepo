@@ -13,10 +13,17 @@ const App = () => {
     isLoggedIn: false,
   });
 
-  const showToastNotification = () => {
+  const showAddNotification = () => {
     toast.success("Item is added in the cart !", {
       position: toast.POSITION.TOP_RIGHT,
-      autoClose: 3000,
+      autoClose: 1500,
+    });
+  };
+
+  const showRemoveNotification = () => {
+    toast.error("Item is removed from the cart !", {
+      position: toast.POSITION.BOTTOM_RIGHT,
+      autoClose: 1500,
     });
   };
 
@@ -25,7 +32,8 @@ const App = () => {
       value={{
         auth: userAuth,
         callBackFunc: setUserAuth,
-        toastNotification: showToastNotification,
+        addItemNotification: showAddNotification,
+        removeItemNotification: showRemoveNotification,
       }}
     >
       <ToastContainer />

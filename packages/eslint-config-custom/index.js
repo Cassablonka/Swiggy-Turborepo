@@ -10,6 +10,7 @@ module.exports = {
   parser: "@typescript-eslint/parser",
   rules: {
     "react/react-in-jsx-scope": "off",
+      "react/display-name": "off",
   },
   settings: {
     react: {

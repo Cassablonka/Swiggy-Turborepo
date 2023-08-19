@@ -7,7 +7,8 @@ type UserContextProps = {
     isLoggedIn: boolean;
   };
   callBackFunc: any;
-  toastNotification: any;
+  addItemNotification: any;
+  removeItemNotification: any;
 };
 
 export const UserContext = createContext<UserContextProps>({
@@ -17,5 +18,6 @@ export const UserContext = createContext<UserContextProps>({
     isLoggedIn: false,
   },
   callBackFunc: () => null,
-  toastNotification: () => null,
+  addItemNotification: () => null,
+  removeItemNotification: () => null,
 });
