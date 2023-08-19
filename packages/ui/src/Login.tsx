@@ -1,13 +1,18 @@
 import { useContext, useState } from "react";
-import { UserContext } from "utils";
+import { UserContext, locationPreferences } from "utils";
 
 export const Login = () => {
   const { callBackFunc } = useContext(UserContext);
   const [name, setName] = useState("");
+  const [selectLocation, setSelectedLocation] = useState("");
+
   function handleClick() {
+    const selectedLocation = locationPreferences.filter(
+      (d) => d.area === selectLocation
+    );
     callBackFunc({
       name: name,
-      location: "Pune",
+      location: selectedLocation[0],
       isLoggedIn: true,
     });
   }
@@ -40,10 +45,28 @@ export const Login = () => {
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="block w-full px-5 py-3 my-3 text-base font-light text-neutral-600 placeholder-gray-400 transition duration-500 ease-in-out transhtmlForm border border-transparent rounded-lg bg-gray-100 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-100"
+                    className="block w-full px-5 py-3 my-3 text-base font-normal text-neutral-600 placeholder-gray-400 transition duration-500 ease-in-out transhtmlForm border border-transparent rounded-lg bg-gray-100 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-100"
                     placeholder="Enter your name"
                   />
                 </div>
+
+                <div>
+                  <select
+                    value={selectLocation}
+                    onChange={(e) => setSelectedLocation(e.target.value)}
+                    className="block w-full px-4 py-3 mb-3 text-base font-normal text-neutral-600 placeholder-gray-400 transition duration-500 ease-in-out transhtmlForm border border-transparent rounded-lg bg-gray-100 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-100"
+                  >
+                    <option value="">Browse an area</option>
+                    {locationPreferences.map((d) => {
+                      return (
+                        <option key={d.area} value={d.area}>
+                          {d.area}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </div>
+
                 <div className="flex flex-col mt-4 lg:space-y-4">
                   <button
                     type="button"

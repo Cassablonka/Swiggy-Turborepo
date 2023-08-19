@@ -9,7 +9,7 @@ export const Cart = () => {
 
   const subTotal = useSelector((store: any) => store.cart.totalCartValue);
 
-  const gstPrice = (subTotal / 100) * 0.1;
+  const gstPrice = Number(((subTotal / 100) * 0.1).toFixed(2));
 
   const deliveryFee = subTotal === 0 ? 0 : 25;
 

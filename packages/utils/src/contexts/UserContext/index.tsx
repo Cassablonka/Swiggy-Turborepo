@@ -3,7 +3,11 @@ import { createContext } from "react";
 type UserContextProps = {
   auth: {
     name: string;
-    location: string;
+    location: {
+      area: string;
+      lat: number;
+      lon: number;
+    };
     isLoggedIn: boolean;
   };
   callBackFunc: any;
@@ -14,7 +18,11 @@ type UserContextProps = {
 export const UserContext = createContext<UserContextProps>({
   auth: {
     name: "",
-    location: "",
+    location: {
+      area: "",
+      lat: 0,
+      lon: 0,
+    },
     isLoggedIn: false,
   },
   callBackFunc: () => null,

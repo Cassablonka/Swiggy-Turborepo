@@ -1,15 +1,21 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ALL_RESTAURANTS_URL, INDIVIDUAL_RESTAURANTS_URL } from "../constants";
 import { fetchAPI } from "../helpers";
+import { UserContext } from "../contexts";
 
 export const useGetAllRestaurants = () => {
+  const { auth } = useContext(UserContext);
+
+  const { lat, lon } = auth.location;
+
+  const locationString = `&lat=${lat}&lng=${lon}`;
   const [restaurants, setRestaurants] = useState([]);
   useEffect(() => {
     getAllRestaurants();
   }, []);
 
   async function getAllRestaurants() {
-    const data = await fetchAPI(ALL_RESTAURANTS_URL);
+    const data = await fetchAPI(ALL_RESTAURANTS_URL + locationString);
     setRestaurants(
       data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );

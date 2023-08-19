@@ -9,7 +9,11 @@ import "react-toastify/dist/ReactToastify.css";
 const App = () => {
   const [userAuth, setUserAuth] = useState({
     name: "",
-    location: "",
+    location: {
+      area: "",
+      lat: 0,
+      lon: 0,
+    },
     isLoggedIn: false,
   });
 
