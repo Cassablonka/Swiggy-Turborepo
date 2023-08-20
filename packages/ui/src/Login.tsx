@@ -54,7 +54,7 @@ export const Login = () => {
                   <select
                     value={selectLocation}
                     onChange={(e) => setSelectedLocation(e.target.value)}
-                    className="block w-full px-4 py-3 mb-3 text-base font-normal text-neutral-600 placeholder-gray-400 transition duration-500 ease-in-out transhtmlForm border border-transparent rounded-lg bg-gray-100 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-100"
+                    className="block w-full px-4 py-3 mb-3 text-base font-normal text-neutral-400 placeholder-gray-400 transition duration-500 ease-in-out transhtmlForm border border-transparent rounded-lg bg-gray-100 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-100"
                   >
                     <option value="">Browse an area</option>
                     {locationPreferences.map((d) => {
@@ -71,7 +71,7 @@ export const Login = () => {
                   <button
                     type="button"
                     onClick={handleClick}
-                    className="flex items-center justify-center w-full tracking-wider px-20 py-3 text-base font-semibold text-center text-white hover:text-black transition duration-500 ease-in-out transform bg-black rounded-md hover:bg-orange-300"
+                    className="flex items-center justify-center w-full tracking-wider px-20 py-3 mt-2 text-base font-semibold text-center text-white hover:text-black transition duration-500 ease-in-out transform bg-black rounded-md hover:bg-orange-300"
                   >
                     Log in
                   </button>

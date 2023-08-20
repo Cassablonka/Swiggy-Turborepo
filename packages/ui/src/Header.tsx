@@ -1,12 +1,22 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { UserContext } from "utils";
 
 export const Header = () => {
-  const { auth } = useContext(UserContext);
+  const { auth, callBackFunc } = useContext(UserContext);
+
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const cartItems = useSelector((store: any) => store.cart.items);
+
+  const handleClick = () => {
+    callBackFunc({
+      name: "",
+      location: [],
+      isLoggedIn: false,
+    });
+  };
 
   return (
     <>
@@ -122,22 +132,46 @@ export const Header = () => {
                 </Link>
               </li>
               <li>
-                <div className="flex text-black text-base font-semibold">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-                    />
-                  </svg>
-                  <div className="px-2">{auth.name}</div>
+                <div className="flex text-black text-base font-semibold font-sans">
+                  <div className="px-1 text-gray-500 ">{auth.name}</div>
+
+                  <button onClick={() => setMenuOpen(!menuOpen)}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-6 h-6 hover:text-amber-500"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+                      />
+                    </svg>
+                  </button>
+
+                  {menuOpen && (
+                    <div
+                      id="dropdown"
+                      className="z-10 absolute top-16 right-24 bg-white divide-y divide-gray-100 rounded-lg w-32"
+                    >
+                      <ul className="pt-2 text-sm text-gray-700">
+                        <li>
+                          <Link
+                            to="#"
+                            className="block px-4 py-2 mt-1 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                          >
+                            Dashboard
+                          </Link>
+                        </li>
+                        <li className="block px-4 py-2 hover:bg-gray-100 hover:rounded-b-lg dark:hover:bg-gray-600 dark:hover:text-white">
+                          <button onClick={handleClick}>Sign out</button>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </li>
             </ul>
