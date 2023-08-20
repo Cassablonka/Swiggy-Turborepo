@@ -38,6 +38,7 @@ const cartSlice = createSlice({
     },
     clearItems: (state) => {
       state.items.length = 0;
+      state.totalCartValue = 0;
     },
     increaseItemQuantity: (state, action) => {
       state.totalCartValue += action.payload.price;

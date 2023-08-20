@@ -1,6 +1,7 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import MenuCard, { withMenuCard } from "./MenuCard";
 import { Link } from "react-router-dom";
+import { clearItems } from "utils";
 
 export const Cart = () => {
   const cartItems = useSelector((store: any) => store.cart.items);
@@ -14,6 +15,14 @@ export const Cart = () => {
   const deliveryFee = subTotal === 0 ? 0 : 25;
 
   const orderTotal = subTotal / 100 + gstPrice + deliveryFee;
+
+  const dispatch = useDispatch();
+
+  console.log("==cart", cartItems);
+
+  function handleClick(): void {
+    dispatch(clearItems());
+  }
 
   return (
     <>
@@ -58,6 +67,16 @@ export const Cart = () => {
             <div>
               <div className="flex justify-between border-b-2 mt-4 px-8 pb-4">
                 <h2 className="font-normal font-sans text-4xl">Summary</h2>
+                {cartItems.length !== 0 && (
+                  <div className="mt-1">
+                    <button
+                      onClick={handleClick}
+                      className="px-2 py-1 font-semibold rounded-md text-black bg-amber-300 hover:bg-black hover:text-white"
+                    >
+                      Clear Cart
+                    </button>
+                  </div>
+                )}
               </div>
               <div className="px-8 pb-4 mt-4">
                 <ul className="divide-y divide-gray-200">

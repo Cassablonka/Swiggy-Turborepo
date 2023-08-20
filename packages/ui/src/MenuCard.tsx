@@ -86,7 +86,7 @@ const MenuCard = (props: any) => {
         />
         <div className="flex-grow mx-8 my-10 prose text-center sm:text-left sm:mt-0 prose-md">
           <div
-            className={`border-2 border-${cuisineColor}-500 w-6 h-6 flex justify-center items-center rounded-md`}
+            className={`border-${cuisineColor}-500 border-2 w-6 h-6 flex justify-center items-center rounded-md`}
           >
             <svg
               viewBox="0 0 100 100"
