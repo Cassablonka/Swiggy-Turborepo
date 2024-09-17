@@ -1,0 +1,23 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "packages/*/package.json",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "dist"
+        }
+      }
+    ],
+    "installCommand": "pnpm install",
+    "buildCommand": "pnpm turbo run build",
+    "outputDirectory": "packages/app/public",
+    "ignoreCommand": "pnpm turbo run lint",
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/public/$1"
+      }
+    ]
+  }
+  
