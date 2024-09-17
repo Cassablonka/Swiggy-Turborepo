@@ -8,8 +8,8 @@ export const RestaurantDetails = () => {
   const [activeIndex, setActiveIndex] = useState<null | number>(0);
   const { menuId } = useParams();
   const data = useGetIndividualRestaurant(menuId!) as any;
-  const restaurant = data[0]?.card?.card?.info;
-  const menu = data[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+  const restaurant = data[2]?.card?.card?.info;
+  const menu = data[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
   const allCategories = menu?.filter(
     (res: any) =>
       res?.card?.card?.["@type"] ===

@@ -17,7 +17,7 @@ export const useGetAllRestaurants = () => {
   async function getAllRestaurants() {
     const data = await fetchAPI(ALL_RESTAURANTS_URL + locationString);
     setRestaurants(
-      data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   }
   return restaurants;
