@@ -4,8 +4,7 @@
     "build": {
       "outputs": [
         "build/**",
-        "dist/**",
-        "public/**"
+        "dist/**"
       ],
       "dependsOn": [
         "^build"

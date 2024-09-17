@@ -2,21 +2,21 @@
     "version": 2,
     "builds": [
       {
-        "src": "packages/*/package.json",
+        "src": "packages/**/package.json",
         "use": "@vercel/static-build",
         "config": {
           "distDir": "dist"
         }
       }
     ],
-    "installCommand": "pnpm install",
+    "installCommand": "pnpm install --frozen-lockfile",
     "buildCommand": "pnpm turbo run build",
-    "outputDirectory": "packages/app/public",
-    "ignoreCommand": "pnpm turbo run lint",
+    "cleanUrls": true,
+    "outputDirectory": "packages/app/dist",
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "/public/$1"
+        "dest": "/dist/$1"
       }
     ]
   }
